@@ -37,6 +37,13 @@
 
 - [x] App with different pages
 - [] Page with a list of movies
+
   - [x] Route, Page, Link
-  -
+  - [x] fetch data from OMDB
+    - state -> useState
+    - side Effect -> useEffect (do not forget dependency array)
+    - api url -> which / api key
+    - axios
+    - async function
+
 - Page with details for a specific movie
