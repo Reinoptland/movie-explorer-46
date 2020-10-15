@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function DiscoverMovies() {
   const [movies, setMovies] = useState({ status: "idle", data: null });
@@ -34,7 +35,9 @@ export default function DiscoverMovies() {
           console.log(movie);
           return (
             <div>
-              <h3>{movie.Title}</h3>
+              <Link to={`/movies/${movie.imdbID}`}>
+                <h3>{movie.Title}</h3>
+              </Link>
               <img src={movie.Poster} />
             </div>
           );

@@ -36,9 +36,9 @@
 ## What we will build
 
 - [x] App with different pages
-- [] Page with a list of movies
+- [x] Page with a list of movies
 
-  - [x] Route, Page, Link
+  - [x] Route, Component, Link
   - [x] fetch data from OMDB
     - state -> useState
     - side Effect -> useEffect (do not forget dependency array)
@@ -50,3 +50,15 @@
     - Optional: make a guard statement to prefent cannot read map of undifined / null
 
 - Page with details for a specific movie
+- [x] Component
+- [x] Dynamic Route `<Route path="/movies/:movieId" component={MovieDetails} />`
+- [x] Dynamic Link `<Link to={`/movies/\${movie.imdbID}`}>`
+- [] fetch data from OMDB
+  - state -> useState
+  - side Effect -> useEffect (do not forget dependency array)
+  - api url -> which / api key
+  - axios
+  - async function
+- [] Display data ->
+  - Interpolate the data (1 movie)
+  - Optional: make a guard statement to prefent cannot read map of undifined / null
