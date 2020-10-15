@@ -16,8 +16,8 @@
 - React Router
 - Setup
 
-  - [] npm install react-router-dom
-  - [] wrap our app in a Router component (index.js)
+  - [x] npm install react-router-dom
+  - [x] wrap our app in a Router component (index.js)
 
 - Static Routes
 - Dynamic Routes
