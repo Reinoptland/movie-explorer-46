@@ -19,7 +19,7 @@ export default function MovieDetails() {
     }
 
     fetchDetails();
-  }, []);
+  }, [params.imdbID]);
 
   console.log(movieDetails);
 

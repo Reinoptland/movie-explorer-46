@@ -32,6 +32,8 @@
   - '/movies/guardiansofthegalaxy'
   - '/movies/spiritedaway'
   - '/movies/:movieTitle'
+  - Add a route parameter
+  - Get the value of the parameter using useParams
 
 ## What we will build
 
@@ -53,13 +55,13 @@
 - [x] Component
 - [x] Dynamic Route `<Route path="/movies/:movieId" component={MovieDetails} />`
 - [x] Dynamic Link `<Link to={`/movies/\${movie.imdbID}`}>`
-- [] fetch data from OMDB
-  - Get the correct IMDBID from the "path" -> useParams
+- [x] fetch data from OMDB
+  - Get the correct IMDBID from the "path" -> `useParams`
   - state -> useState
   - side Effect -> useEffect (do not forget dependency array)
   - api url -> which / api key
   - axios
   - async function
-- [] Display data ->
+- [x] Display data ->
   - Interpolate the data (1 movie)
   - Optional: make a guard statement to prefent cannot read map of undifined / null

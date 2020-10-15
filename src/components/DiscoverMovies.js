@@ -38,7 +38,7 @@ export default function DiscoverMovies() {
               <Link to={`/movies/${movie.imdbID}`}>
                 <h3>{movie.Title}</h3>
               </Link>
-              <img src={movie.Poster} />
+              <img src={movie.Poster} alt={movie.Title} />
             </div>
           );
         })}
