@@ -54,6 +54,7 @@
 - [x] Dynamic Route `<Route path="/movies/:movieId" component={MovieDetails} />`
 - [x] Dynamic Link `<Link to={`/movies/\${movie.imdbID}`}>`
 - [] fetch data from OMDB
+  - Get the correct IMDBID from the "path" -> useParams
   - state -> useState
   - side Effect -> useEffect (do not forget dependency array)
   - api url -> which / api key

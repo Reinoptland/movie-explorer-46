@@ -29,7 +29,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/discover" component={DiscoverMovies} />
-          <Route path="/movies/:movieId" component={MovieDetails} />
+          <Route path="/movies/:imdbID" component={MovieDetails} />
           <Route path="/" component={NotFound} />
         </Switch>
       </header>
