@@ -15,11 +15,19 @@ export default function MovieDetails() {
         `http://www.omdbapi.com/?i=${params.imdbID}&apikey=a7462395`
       );
       console.log(response);
+      setMovieDetails({ status: "success", data: response.data });
     }
 
     fetchDetails();
   }, []);
 
+  console.log(movieDetails);
+
   console.log("WHAT ARE PARAMS:", params); // -> what data? object, string?
-  return <div>DETAILS</div>;
+  return (
+    <div>
+      <h1>{movieDetails.data?.Title}</h1>
+      <p>{movieDetails.data?.Plot}</p>
+    </div>
+  );
 }
