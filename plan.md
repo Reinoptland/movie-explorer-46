@@ -45,5 +45,8 @@
     - api url -> which / api key
     - axios
     - async function
+  - Display data ->
+    - map over the array
+    - Optional: make a guard statement to prefent cannot read map of undifined / null
 
 - Page with details for a specific movie
