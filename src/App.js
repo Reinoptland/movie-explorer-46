@@ -1,20 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
+import { Switch, Route, Link } from "react-router-dom";
 import "./App.css";
+import DiscoverMovies from "./components/DiscoverMovies";
+
+function About() {
+  return <h1>About page</h1>;
+}
+
+function Home() {
+  return <h1>Home page</h1>;
+}
+
+function NotFound() {
+  return <h1>Are you drunk??</h1>;
+}
 
 function App() {
-  const [page, setPage] = useState("home");
-
-  console.log(page);
-
-  const content = page === "home" ? "Welcome" : "About";
-
   return (
     <div className="App">
       <header className="App-header">
-        <button onClick={() => setPage("home")}>Home</button>
-        <button onClick={() => setPage("about")}>About</button>
-
-        {content}
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/discover">Discover</Link>
+        </nav>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/discover" component={DiscoverMovies} />
+          <Route path="/" component={NotFound} />
+        </Switch>
       </header>
     </div>
   );
