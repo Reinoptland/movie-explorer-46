@@ -65,3 +65,17 @@
 - [x] Display data ->
   - Interpolate the data (1 movie)
   - Optional: make a guard statement to prefent cannot read map of undifined / null
+
+## Store query in URL (because we want to share our results)
+
+1. [x] When search button is clicked
+
+- Push the searchText into the url -> useHistory & history.push
+
+2. Get the searchText out of the url
+
+- So we have access to it in our component -> useParams
+
+3. Everytime the searchText in the url changes
+
+- Fetch the data from the api -> useEffect with dependency: params.searchText
