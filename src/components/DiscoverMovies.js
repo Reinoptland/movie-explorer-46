@@ -19,13 +19,28 @@ export default function DiscoverMovies() {
     async function fetchMovies() {
       setMovies({ status: "loading", data: [] });
       //   console.log("hello students, I am checking this bit");
-      const response = await axios.get(
-        `http://www.omdbapi.com/?s=${params.query}&y=2018&apikey=a7462395`
-      );
+      try {
+        const response = await axios.get(
+          `http://www.omdbapi.com/?s=${params.query}&y=2018&apikey=a7462395`
+        );
 
-      // console.log(response.data.Search);
-
-      setMovies({ status: "success", data: response.data.Search });
+        console.log(response.data);
+        if (response.data.Response === "False") {
+          setMovies({
+            status: "error",
+            data: [],
+            message: response.data.Error,
+          });
+        } else {
+          setMovies({ status: "success", data: response.data.Search });
+        }
+      } catch (error) {
+        setMovies({
+          status: "error",
+          data: [],
+          message: error.message,
+        });
+      }
       setSearchText(params.query);
     }
 
@@ -45,7 +60,7 @@ export default function DiscoverMovies() {
   return (
     <div>
       Discover
-      <div>{movies.status}</div>
+      <div>{movies.status === "error" ? movies.message : movies.status}</div>
       <input
         value={searchText}
         onChange={(event) => setSearchText(event.target.value)}
