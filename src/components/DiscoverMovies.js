@@ -3,30 +3,39 @@ import axios from "axios";
 import { Link, useHistory, useParams } from "react-router-dom";
 
 export default function DiscoverMovies() {
-  const [movies, setMovies] = useState({ status: "idle", data: null });
-  const [searchText, setSearchText] = useState("");
+  const params = useParams();
+  const [movies, setMovies] = useState({ status: "idle", data: [] });
+  const [searchText, setSearchText] = useState(params.query || "");
   const history = useHistory();
 
+  console.log("PARAMS:", params); //
+
   useEffect(() => {
+    // console.log("I AM A SIDEFFECT, I GOT RUN");
+    if (params.query === undefined || params.query === "") {
+      return; // stop
+    }
+
     async function fetchMovies() {
-      setMovies({ status: "loading", data: null });
+      setMovies({ status: "loading", data: [] });
       //   console.log("hello students, I am checking this bit");
       const response = await axios.get(
-        "http://www.omdbapi.com/?s=Good&y=2018&apikey=a7462395"
+        `http://www.omdbapi.com/?s=${params.query}&y=2018&apikey=a7462395`
       );
 
       // console.log(response.data.Search);
 
       setMovies({ status: "success", data: response.data.Search });
+      setSearchText(params.query);
     }
 
     fetchMovies();
-  }, []);
+  }, [params.query]); // everytime params.query changes, run the effect again
 
   // console.log("STATE:", movies);
-  if (movies.data === null) {
-    return <div>{movies.status}</div>;
-  }
+  // if (movies.data === null) {
+  //   return <div>{movies.status}</div>;
+  // }
 
   function search() {
     console.log(searchText); // add to the url
